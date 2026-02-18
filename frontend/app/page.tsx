@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 export default function Home() {
   return (
     <div className="bg-gray-100 min-h-screen">
@@ -101,7 +103,7 @@ export default function Home() {
 
       {/* FOOTER */}
       <footer className="bg-gray-300 py-6 text-center text-sm">
-        © 2023 Tribal Art Marketplace
+        © 2026 Tribal Art Marketplace
       </footer>
 
     </div>
