@@ -5,6 +5,7 @@ import { AuthProvider } from "@/context/AuthContext";
 import { UIProvider } from "@/context/UIContext";
 import SWRProvider from "@/context/SWRProvider";
 import ToasterProvider from "@/context/ToasterProvider";
+import { DarkModeSync } from "@/components/DarkModeSync";
 
 export default function RootLayout({
   children,
@@ -12,10 +13,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className="bg-gray-100 text-gray-900">
+    <html lang="en" suppressHydrationWarning>
+      <body className="
+        bg-white dark:bg-gray-950
+        text-gray-900 dark:text-gray-100
+        transition-colors duration-300
+      ">
         <AuthProvider>
           <UIProvider>
+            <DarkModeSync />
             <SWRProvider>
               <ToasterProvider />
               <Header />
