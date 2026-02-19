@@ -11,12 +11,18 @@ export default function Header() {
         </h1>
 
         {/* RIGHT SIDE - NAV LINKS */}
-        <nav className="flex gap-8 text-base font-bold text-black">
+        <nav className="flex items-center gap-6 text-base font-bold text-black">
           <Link href="/" className="hover:text-orange-600 hover:scale-110 transition-all duration-300">Home</Link>
           <Link href="/shop" className="hover:text-orange-600 hover:scale-110 transition-all duration-300">Shop</Link>
           <Link href="/about" className="hover:text-orange-600 hover:scale-110 transition-all duration-300">About Us</Link>
           <Link href="/artists" className="hover:text-orange-600 hover:scale-110 transition-all duration-300">Artist Profiles</Link>
           <Link href="/contact" className="hover:text-orange-600 hover:scale-110 transition-all duration-300">Contact</Link>
+          <Link
+            href="/login"
+            className="ml-4 bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition"
+          >
+            Login
+          </Link>
         </nav>
 
       </div>
