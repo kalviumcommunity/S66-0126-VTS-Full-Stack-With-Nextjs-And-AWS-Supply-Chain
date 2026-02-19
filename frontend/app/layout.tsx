@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import { AuthProvider } from "@/context/AuthContext";
 import { UIProvider } from "@/context/UIContext";
 import SWRProvider from "@/context/SWRProvider";
+import ToasterProvider from "@/context/ToasterProvider";
 
 export default function RootLayout({
   children,
@@ -16,6 +17,7 @@ export default function RootLayout({
         <AuthProvider>
           <UIProvider>
             <SWRProvider>
+              <ToasterProvider />
               <Header />
               <main>{children}</main>
               <Footer />
