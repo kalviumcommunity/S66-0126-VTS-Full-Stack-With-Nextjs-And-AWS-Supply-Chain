@@ -1,3 +1,49 @@
+# Tribal Art Demo (frontend)
+
+This folder contains a minimal Next.js App Router demo with protected routes via middleware.
+
+## Route map
+
+- Public routes:
+  - `/login` → Login page (client)
+
+- Protected routes (middleware checks for `token` cookie):
+  - `/` → Home (acts as Dashboard, protected)
+  - `/users` → Users list (protected)
+  - `/users/[id]` → Dynamic user page (protected)
+
+## Middleware
+
+- File: `middleware.ts`
+ - Purpose: Protect `/` (home/dashboard) and `/users/*` by checking for a JWT-like token stored in cookies under the name `token`.
+ - Behavior:
+  - If `token` cookie is missing, the middleware redirects the visitor to `/login`.
+  - If `token` exists, the request continues.
+  - Public pages (`/login`) and Next.js internals are allowed through.
+
+Note: For the demo we set a mock token string in the cookie from the client login page. In production, verify and decode JWTs securely on the server.
+
+## Dynamic routes
+
+- `/users/[id]` demonstrates a dynamic App Router page. The page receives `params` and renders `User ID: {id}` (for example `/users/1` shows `User ID: 1`).
+
+## SEO and scalability
+
+- App Router pages are server components by default which is good for SEO because HTML is rendered on the server and crawlers receive full content.
+- Middleware runs at the edge and provides a fast gating mechanism. For scalable auth, verify JWTs (signature and expiry) in the middleware or call an auth service.
+- Use statically generated pages (ISR) or server-side rendering selectively depending on content frequency and personalization needs.
+
+## How to run
+
+1. Install dependencies in the `frontend` folder:
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+2. Open http://localhost:3000
 # 🎨 Tribal Art Marketplace  
 ### Direct Marketplace Connecting Tribal Artists with Global Buyers
 
