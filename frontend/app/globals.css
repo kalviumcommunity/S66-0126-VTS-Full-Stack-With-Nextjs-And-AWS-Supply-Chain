@@ -3,6 +3,11 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  
+  /* Brand color tokens */
+  --color-brand-light: #3b82f6;
+  --color-brand-default: #1e3a8a;
+  --color-brand-dark: #0c2340;
 }
 
 @theme inline {
@@ -19,8 +24,44 @@
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background-color: #f3f4f6;
+  background-color: #ffffff;
   color: #000000;
+}
+
+html.dark body {
+  background-color: #030712;
+  color: #f3f4f6;
+}
+
+/* 
+ * Smooth transitions for theme switching
+ * Apply to elements that should animate color changes
+ */
+.theme-transitional {
+  @apply transition-colors duration-300;
+}
+
+/* Responsive container helpers */
+@media (max-width: 640px) {
+  .responsive-container {
+    @apply px-4;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .responsive-container {
+    @apply px-6;
+  }
+}
+
+@media (min-width: 1025px) {
+  .responsive-container {
+    @apply px-8 lg:px-12;
+  }
 }
 
