@@ -2,10 +2,16 @@
 
 import { useAuth } from "@/hooks/useAuth";
 import { useUI } from "@/hooks/useUI";
+import { useEffect, useState } from "react";
 
 export default function Home() {
+  const [mounted, setMounted] = useState(false);
   const { isAuthenticated, user, login, logout } = useAuth();
   const { theme, toggleTheme, sidebarOpen, toggleSidebar } = useUI();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const handleLogin = () => {
     login("John Doe");
@@ -13,6 +19,22 @@ export default function Home() {
 
   const bgColor = theme === "light" ? "bg-white" : "bg-gray-900";
   const textColor = theme === "light" ? "text-gray-900" : "text-white";
+
+  // Prevent hydration mismatch by only rendering theme-dependent content after mounting
+  if (!mounted) {
+    return (
+      <div className="bg-white text-gray-900 min-h-screen transition-colors duration-300">
+        <section className="max-w-7xl mx-auto px-12 py-8 border-b border-gray-300">
+          <div className="flex flex-wrap items-center justify-between gap-4">
+            <div className="flex flex-col gap-2">
+              <h3 className="font-bold text-lg">State Management Demo</h3>
+              <p className="text-sm">Loading...</p>
+            </div>
+          </div>
+        </section>
+      </div>
+    );
+  }
 
   return (
     <div className={`${bgColor} ${textColor} min-h-screen transition-colors duration-300`}>
