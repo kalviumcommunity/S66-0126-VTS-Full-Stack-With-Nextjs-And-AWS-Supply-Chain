@@ -1,0 +1,252 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-sidebar: hsl(var(--sidebar-background));
+  --color-sidebar-foreground: hsl(var(--sidebar-foreground));
+  --color-sidebar-primary: hsl(var(--sidebar-primary));
+  --color-sidebar-primary-foreground: hsl(var(--sidebar-primary-foreground));
+  --color-sidebar-accent: hsl(var(--sidebar-accent));
+  --color-sidebar-accent-foreground: hsl(var(--sidebar-accent-foreground));
+  --color-sidebar-border: hsl(var(--sidebar-border));
+  --color-sidebar-ring: hsl(var(--sidebar-ring));
+  --color-ochre-300: hsl(38, 60%, 65%);
+  --color-ochre-400: hsl(38, 60%, 50%);
+  --color-ochre-500: hsl(38, 72%, 52%);
+  --color-green-500: hsl(142, 71%, 45%);
+  --color-green-600: hsl(142, 76%, 36%);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --font-sans: 'Source Sans 3', sans-serif;
+  --font-serif: 'Playfair Display', serif;
+}
+
+:root {
+  /* Warm earthy light palette */
+  --background: 38 45% 96%;
+  --foreground: 20 25% 12%;
+
+  --card: 36 40% 98%;
+  --card-foreground: 20 25% 12%;
+
+  --popover: 36 40% 98%;
+  --popover-foreground: 20 25% 12%;
+
+  /* Terracotta primary */
+  --primary: 16 62% 45%;
+  --primary-foreground: 38 60% 96%;
+
+  /* Warm sand secondary */
+  --secondary: 35 30% 88%;
+  --secondary-foreground: 20 30% 20%;
+
+  --muted: 34 25% 90%;
+  --muted-foreground: 25 15% 45%;
+
+  /* Golden ochre accent */
+  --accent: 38 72% 52%;
+  --accent-foreground: 20 25% 12%;
+
+  --destructive: 0 80% 50%;
+  --destructive-foreground: 38 60% 96%;
+
+  --border: 30 20% 82%;
+  --input: 30 20% 82%;
+  --ring: 16 62% 45%;
+
+  --radius: 0.75rem;
+
+  /* Sidebar */
+  --sidebar-background: 20 30% 14%;
+  --sidebar-foreground: 38 40% 90%;
+  --sidebar-primary: 38 72% 52%;
+  --sidebar-primary-foreground: 20 25% 12%;
+  --sidebar-accent: 20 25% 20%;
+  --sidebar-accent-foreground: 38 40% 90%;
+  --sidebar-border: 20 20% 22%;
+  --sidebar-ring: 38 72% 52%;
+
+  /* Custom tokens */
+  --hero-overlay: linear-gradient(135deg, hsla(20, 40%, 8%, 0.75) 0%, hsla(16, 62%, 25%, 0.5) 100%);
+  --card-shadow: 0 4px 24px -4px hsla(16, 62%, 35%, 0.18);
+  --card-hover-shadow: 0 8px 32px -4px hsla(16, 62%, 35%, 0.28);
+  --pattern-color: hsla(38, 72%, 52%, 0.06);
+}
+
+.dark {
+  --background: 20 20% 8%;
+  --foreground: 36 35% 90%;
+
+  --card: 20 22% 11%;
+  --card-foreground: 36 35% 90%;
+
+  --popover: 20 22% 11%;
+  --popover-foreground: 36 35% 90%;
+
+  --primary: 16 62% 52%;
+  --primary-foreground: 38 60% 96%;
+
+  --secondary: 20 20% 16%;
+  --secondary-foreground: 36 30% 80%;
+
+  --muted: 20 18% 15%;
+  --muted-foreground: 30 15% 55%;
+
+  --accent: 38 65% 48%;
+  --accent-foreground: 38 60% 96%;
+
+  --destructive: 0 62% 45%;
+  --destructive-foreground: 36 35% 90%;
+
+  --border: 20 18% 20%;
+  --input: 20 18% 20%;
+  --ring: 38 65% 48%;
+
+  --sidebar-background: 20 25% 6%;
+  --sidebar-foreground: 38 35% 85%;
+  --sidebar-primary: 38 65% 48%;
+  --sidebar-primary-foreground: 20 20% 8%;
+  --sidebar-accent: 20 20% 12%;
+  --sidebar-accent-foreground: 38 35% 85%;
+  --sidebar-border: 20 18% 14%;
+  --sidebar-ring: 38 65% 48%;
+
+  --hero-overlay: linear-gradient(135deg, hsla(20, 30%, 5%, 0.85) 0%, hsla(16, 50%, 15%, 0.6) 100%);
+  --card-shadow: 0 4px 24px -4px hsla(0, 0%, 0%, 0.4);
+  --card-hover-shadow: 0 8px 32px -4px hsla(0, 0%, 0%, 0.55);
+  --pattern-color: hsla(38, 65%, 48%, 0.05);
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+body {
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: 'Source Sans 3', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Playfair Display', serif;
+}
+
+.tribal-pattern {
+  background-image:
+    repeating-linear-gradient(45deg, var(--pattern-color) 0px, var(--pattern-color) 1px, transparent 1px, transparent 10px),
+    repeating-linear-gradient(-45deg, var(--pattern-color) 0px, var(--pattern-color) 1px, transparent 1px, transparent 10px);
+}
+
+.section-title {
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  font-family: 'Playfair Display', serif;
+}
+
+.card-art {
+  box-shadow: var(--card-shadow);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.card-art:hover {
+  box-shadow: var(--card-hover-shadow);
+  transform: translateY(-3px);
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.6s ease-out both;
+}
+
+.animate-fade-up {
+  animation: fade-up 0.6s ease-out both;
+}
+
+/* View Transition API for Dark Mode Toggle */
+::view-transition-group(root) {
+  animation-duration: 0.7s;
+  animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  mix-blend-mode: normal;
+  display: block;
+}
+
+::view-transition-old(root) {
+  animation-name: fade-out-theme;
+}
+
+::view-transition-new(root) {
+  animation-name: fade-in-theme;
+}
+
+@keyframes fade-out-theme {
+  from {
+    opacity: 1;
+    filter: blur(0);
+  }
+
+  to {
+    opacity: 0;
+    filter: blur(4px);
+  }
+}
+
+@keyframes fade-in-theme {
+  from {
+    opacity: 0;
+    filter: blur(4px);
+  }
+
+  to {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
